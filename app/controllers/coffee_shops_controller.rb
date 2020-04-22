@@ -18,5 +18,15 @@ class CoffeeShopsController < ApplicationController
     )
     render json: @coffee_shop
   end
+    
+  def update
+    @coffee_shop = CoffeeShop.find(params[:id])
+    @coffee_shop.update(
+      name: params[:name],
+      location: params[:location],
+      capacity: params[:capacity]
+    )
+    render json: @coffee_shop
+  end
 
 end
