@@ -3,11 +3,11 @@ class CoffeeShopsController < ApplicationController
 
   def index
     @coffee_shops = CoffeeShop.all 
-    render json: @coffee_shops
+    render json: @coffee_shops, include: :coffees
   end
 
   def show
-    render json: @coffee_shop
+    render json: @coffee_shop, include: :coffees
   end
 
   def create
@@ -25,7 +25,7 @@ class CoffeeShopsController < ApplicationController
       location: params[:location],
       capacity: params[:capacity]
     )
-    render json: @coffee_shop
+    render json: @coffee_shop, include: :coffees
   end
 
   def destroy
