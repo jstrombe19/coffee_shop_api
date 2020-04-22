@@ -30,7 +30,7 @@ class CoffeeShopsController < ApplicationController
 
   def destroy
     @coffee_shop.destroy 
-    redirect_to action: "index"
+    render json: {message: "Successfully destroyed the coffee shop"}
   end
 
   private

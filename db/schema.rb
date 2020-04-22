@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_211333) do
+ActiveRecord::Schema.define(version: 2020_04_22_222113) do
 
   create_table "coffee_shops", force: :cascade do |t|
     t.string "name"
@@ -20,4 +20,15 @@ ActiveRecord::Schema.define(version: 2020_04_22_211333) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "coffees", force: :cascade do |t|
+    t.string "name"
+    t.string "roast_type"
+    t.string "strength"
+    t.integer "coffee_shop_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coffee_shop_id"], name: "index_coffees_on_coffee_shop_id"
+  end
+
+  add_foreign_key "coffees", "coffee_shops"
 end
