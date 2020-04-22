@@ -5,6 +5,11 @@ class CoffeeShopsController < ApplicationController
     render json: @coffee_shops
   end
 
+  def show
+    @coffee_shop = CoffeeShop.find(params[:id])
+    render json: @coffee_shop
+  end
+
   def create
     @coffee_shop = CoffeeShop.create(
       name: params[:name],
