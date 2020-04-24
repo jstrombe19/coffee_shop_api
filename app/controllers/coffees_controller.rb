@@ -46,3 +46,19 @@ class CoffeesController < ApplicationController
   end
 
 end
+
+# json: requires an object - can put message in palce. 
+# send through empty fields, not chekcing anythign as it's being processed. grabbing info and sending it to db
+# coffee controller- more defensive
+  # create instance- 
+    # becuase we have this requirement (null false) to make sure that a user provides a coffeeshop id
+      # create - new and save actions in one
+        # create a new instance locally
+        # 20 if this coffee instance successfuly saves to our db, then we will render json of that coffee instance
+        # otherwise, we are going to render status 422
+          # allwos you to leverage predefined http status codes- do not memorize- google
+          #422- unprocessable entity- everythign formatted correctly(syntax) what you sent back does not allow it be saved in database. somethign is missing or worng. 
+          # new coffee form filled out and sent a post request to our coffees to see if we can get that to save
+            # receives request, router - hey we are recevigin this request from local host and
+            # rails routes
+            # only check we are applying right now, coffee shop id is supplied as part of tose parameters. everythign else can be blank as long as there's coffee shop id. 
